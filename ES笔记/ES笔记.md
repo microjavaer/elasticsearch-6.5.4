@@ -67,15 +67,14 @@ services:
     container_name: elasticsearch
     ports: 
       - 9200:9200
-      - 9300:9300
    kibana:
     image: daocloud.io/library/kibana:6.5.4
     restart: always
     container_name: kibana
     ports: 
-      - 9200:9200
+      - 5601:5601
     environment:
-      - elasticsearch_url=ip:9200
+      - elasticsearch_url=http://192.168.0.3:9200
     depends_on:
       - elasticseatch
    
